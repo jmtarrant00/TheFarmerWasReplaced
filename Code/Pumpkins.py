@@ -1,4 +1,4 @@
-from Utility_Functions import moveTo, water, harvest_process
+from Utility_Functions import moveTo, water
 
 def get_pumpkins(plot_size, num_squares):
     for i in range(2):
