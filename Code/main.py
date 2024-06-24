@@ -1,18 +1,35 @@
+from Utility_Functions import moveTo
+from Grass import get_grass
+from Wood import get_wood
+from Carrots import get_carrots
+from Pumpkins import get_pumpkins
+from Sunflower import get_sunflower
+
 plot_size = get_world_size()
 num_squares = plot_size ** 2 
+crops_list = [
+    "Hay", 
+    "Wood", 
+    "Carrots", 
+    "Pumpkins", 
+    "Sunflowers"
+]
+
 moveTo([0, 0])
 while True:
-    for plants in range(3):
-        if plants == 0:
+    for crop in crops_list:
+        if crop == "Hay":
             print("Hay")
             get_grass() 
-        elif plants == 1:
+        elif crop == "Wood":
             print("Wood")
             get_wood()
-        elif plants == 2:
+        elif crop == "Carrots":
             print("Carrots")
             get_carrots(plot_size, num_squares)
-        elif plants == 3:
+        elif crop == "Pumpkins":
             print("Pumpkins")
-            harvest_everything()
             get_pumpkins(plot_size, num_squares)
+        elif crop == "Sunflowers":
+            print("Sunflowers")
+            get_sunflower(plot_size, num_squares)
