@@ -48,19 +48,13 @@ def water():
             break
     return
 
-def harvest_process(plant_type, need_till=False):
+def harvest_process(plant_type):
     if plant_type == None:
         harvest()
         water()
         return
     
-    if need_till and can_harvest():
-        harvest()
-        till()
-        plant(plant_type)
-        water()
-        return
-    elif can_harvest():
+    if can_harvest():
         harvest()
         plant(plant_type)
         water()
