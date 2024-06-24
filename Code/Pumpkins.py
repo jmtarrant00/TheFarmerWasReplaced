@@ -1,22 +1,24 @@
-from Utility_Functions import moveTo, water
+from Utility_Functions import *
 
 def get_pumpkins(plot_size, num_squares):
+
     for i in range(2):
         replant_list = []
         for x in range(plot_size):
                 for y in range(plot_size):
-                    num_pumpkin_seeds = num_items(Items.Pumpkin_Seed)
                     if get_ground_type() != Grounds.Soil:
                         till()
-                    if num_pumpkin_seeds < num_squares:
-                        trade(Items.Pumpkin_Seed, num_squares - num_pumpkin_seeds)
-                    if can_harvest():
-                        move(North)
+                    if i == 0 and can_harvest():
+                        trade(Items.Pumpkin_Seed)
+                        harvest_process(Entities.Pumpkin)
+                    elif i == 1 and can_harvest():
+                        pass
                     else:
+                        trade(Items.Pumpkin_Seed)
                         plant(Entities.Pumpkin)
                         water()
                         replant_list.append([x, y])
-                        move(North)
+                    move(North)
                 move(East)
 
     quick_print(replant_list)
