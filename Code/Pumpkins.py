@@ -39,10 +39,7 @@ def get_pumpkins(plot_size, num_squares):
 
     harvest()
     moveTo([0,0])
- 
- 
-    return
 
-                
+    return
 
 get_pumpkins(get_world_size(), get_world_size() ** 2)
