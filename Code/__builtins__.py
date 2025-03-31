@@ -278,7 +278,7 @@ class Unlocks:
 
     @property
     def Fertilizer(self):
-        """Grow plants instantly."""
+        """Reduces the remaining growing time of the plant under the drone by 2 seconds."""
         ...
 
     @property
@@ -446,7 +446,7 @@ def plant(entity: Entities) -> bool:
 
 
 # -------------------------------------------------------------------------------
-def move(direction: North | East | South | West) -> None:
+def move(direction: North | East | South | West) -> bool:
     """
     Moves the drone into the specified `direction` by one tile.
     If the drone moves over the edge of the farm it wraps back to the other side of the farm.
@@ -469,15 +469,15 @@ def move(direction: North | East | South | West) -> None:
 
 
 # -------------------------------------------------------------------------------
-def swap(direction: North | East | South | West) -> None:
+def swap(direction: North | East | South | West) -> bool:
     """
     Swaps the entity under the drone with the entity next to the drone in the specified `direction`.
     - Doesn't work on all entities.
     - Also works if one (or both) of the entities are `None`.
 
-    returns `None`
+    returns `True` if it succeeded, `False` otherwise.
 
-    takes the time of `200` operations to execute.
+    takes the time of `200` operations to execute on success, `1` operation otherwise.
 
     example usage:
     ```
@@ -761,7 +761,7 @@ def set_execution_speed(speed: float) -> None:
 def set_farm_size(size: float) -> None:
     """
     Limits the size of the farm to better see what's happening.
-    Also clears the farm.
+    Also clears the farm and resets the drone position.
     - Sets the farm to a `size` x `size` grid.
     - The smallest `size` possible is `3`.
     - A `size` smaller than `3` will change the grid back to its full size.
