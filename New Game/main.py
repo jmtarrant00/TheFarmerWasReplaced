@@ -2,7 +2,13 @@
 from Grass import grass
 from Wood import wood
 from Carrots import carrots
+from Pumpkins import pumpkins
 
 
 
+while True:
+    grass()
+    wood()
+    carrots()
+    pumpkins()
 
