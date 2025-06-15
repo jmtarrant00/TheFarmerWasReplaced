@@ -1,5 +1,5 @@
 # Harvests, tills, plants, and waters carrots across the world as needed.
-while True: 
+def carrots(): 
     for i in range(get_world_size()):
 
         # If ready to harvest and soil is correct, harvest and replant
@@ -20,7 +20,7 @@ while True:
 
 
         # Water if soil is too dry
-        if get_water() < 0.1:
+        if get_water() < 0.5:
             while get_water() != 1:
                 use_item(Items.Water)   
 
