@@ -22,6 +22,14 @@ def sunflowers(world_size):
                         largest_sunflower[size].append([x, y])
                     else:
                         largest_sunflower[size] = [[x, y]]
+                elif i == 1 and not can_harvest():
+                    while not can_harvest():
+                        do_a_flip()
+                    size = measure()
+                    if size in largest_sunflower:
+                        largest_sunflower[size].append([x, y])
+                    else:
+                        largest_sunflower[size] = [[x, y]]
                 else:
                     harvest_process(Entities.Sunflower)
                 move(North)
@@ -39,5 +47,5 @@ def sunflowers(world_size):
                 
                 
 
-#while True:                
-#   sunflower(get_world_size())
+while True:
+    sunflowers(get_world_size())
