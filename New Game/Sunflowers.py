@@ -47,5 +47,5 @@ def sunflowers(world_size):
                 
                 
 
-while True:
-    sunflowers(get_world_size())
+#while True:
+#    sunflowers(get_world_size())
